@@ -1,22 +1,36 @@
 import random
 
-# define some lists of words that we will use to generate our stories
-characters = ["Alice", "Bob", "Charlie", "Dave", "Eve"]
-settings = ["in a dark forest", "on a deserted island", "in a bustling city", "in a medieval castle"]
-plots = ["finds a mysterious object", "goes on a quest to find a lost treasure", "falls in love with a stranger"]
+# Predefined templates for different parts of the story
+templates = {
+    'intro': ['Once upon a time, there was a {character} named {name}.',
+              'In a land far away, {name} the {character} lived happily.'],
+    'conflict': ['One day, {name} encountered a {adjective} {antagonist}.',
+                 '{name} faced a great challenge when a {antagonist} appeared.'],
+    'resolution': ['With determination and {adjective}, {name} overcame the {antagonist}.',
+                   'Through courage and cleverness, {name} defeated the {antagonist}.'],
+    'ending': ['And they all lived happily ever after.',
+               'From that day on, {name} became a legend in the land.']
+}
 
-# function to generate a random story
+
 def generate_story():
-    # choose a random character, setting, and plot
-    character = random.choice(characters)
-    setting = random.choice(settings)
-    plot = random.choice(plots)
+    # Randomly choose character, name, antagonist, and adjective
+    character = random.choice(['prince', 'princess', 'wizard', 'knight'])
+    name = random.choice(['Arthur', 'Eleanor', 'Merlin', 'Lancelot'])
+    antagonist = random.choice(['dragon', 'witch', 'giant', 'evil sorcerer'])
+    adjective = random.choice(['bravery', 'wisdom', 'perseverance', 'resourcefulness'])
 
-    # generate the story
-    story = f"{character} {plot} {setting}."
+    # Generate the story parts using the templates
+    intro = random.choice(templates['intro']).format(character=character, name=name)
+    conflict = random.choice(templates['conflict']).format(name=name, adjective=adjective, antagonist=antagonist)
+    resolution = random.choice(templates['resolution']).format(name=name, adjective=adjective, antagonist=antagonist)
+    ending = random.choice(templates['ending']).format(name=name)
 
-    # return the story
+    # Combine the story parts
+    story = intro + ' ' + conflict + ' ' + resolution + ' ' + ending
     return story
 
+
+# Generate and print a story
 story = generate_story()
 print(story)
