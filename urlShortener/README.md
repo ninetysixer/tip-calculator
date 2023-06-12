@@ -5,3 +5,5 @@ Now, after shortening a URL, you can click the "Copy" button to copy the shorten
 Make sure to install the pyperclip library using pip: pip install pyperclip.
 
 Feel free to customize the appearance and behavior of the UI to suit your needs.
+
+
