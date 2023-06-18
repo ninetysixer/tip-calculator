@@ -2,7 +2,7 @@ import requests
 import tkinter as tk
 from tkinter import messagebox
 
-API_KEY = '21d3220882202f624a220c5975034230'
+API_KEY = 'YOUR-API-KEY' # You should enter you key here
 BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
 def get_weather(city):
